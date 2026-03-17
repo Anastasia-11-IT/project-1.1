@@ -86,3 +86,14 @@ window.addEventListener("click", function (event) {
         modal.style.display = "none";
     }
 });
+
+// Автоматичне завантаження картинок
+
+document.getElementById("paris-img").src =
+"https://source.unsplash.com/600x400/?paris,eiffel-tower";
+
+document.getElementById("bali-img").src =
+"https://source.unsplash.com/600x400/?bali,beach";
+
+document.getElementById("tokyo-img").src =
+"https://source.unsplash.com/600x400/?tokyo,city,night";
