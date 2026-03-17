@@ -1,33 +1,54 @@
-// Знаходимо поле пошуку по id
-const searchInput = document.getElementById("search-input");
+// ===== ТЕМНА ТЕМА =====
+const themeButton = document.getElementById("theme-toggle");
 
-// Знаходимо всі картки
+themeButton.addEventListener("click", function () {
+    document.body.classList.toggle("dark-theme");
+});
+
+
+// ===== ПОШУК =====
+const searchInput = document.getElementById("search-input");
 const cards = document.querySelectorAll(".card");
 
-// Перевірка (щоб не було помилки, якщо елемент не знайдений)
-if (searchInput) {
+searchInput.addEventListener("input", function () {
 
-    // Слухаємо введення тексту
-    searchInput.addEventListener("input", function () {
+    const searchText = searchInput.value.toLowerCase();
 
-        // Отримуємо текст користувача
-        const searchText = searchInput.value.toLowerCase();
+    cards.forEach(function (card) {
 
-        // Перебираємо всі картки
-        cards.forEach(function (card) {
+        const cardText = card.textContent.toLowerCase();
 
-            // Отримуємо текст картки
-            const cardText = card.textContent.toLowerCase();
-
-            // Порівнюємо
-            if (cardText.includes(searchText)) {
-                card.style.display = "block"; // показати
-            } else {
-                card.style.display = "none"; // сховати
-            }
-
-        });
+        if (cardText.includes(searchText)) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
 
     });
 
-}
+});
+
+
+// ===== МОДАЛЬНЕ ВІКНО =====
+const modal = document.getElementById("modal");
+const openButtons = document.querySelectorAll(".open-modal");
+const closeButton = document.getElementById("close-modal");
+
+// Відкрити
+openButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+        modal.style.display = "flex";
+    });
+});
+
+// Закрити
+closeButton.addEventListener("click", function () {
+    modal.style.display = "none";
+});
+
+// Закриття при кліку поза вікном
+window.addEventListener("click", function (event) {
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+});
