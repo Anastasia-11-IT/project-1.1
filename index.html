@@ -14,7 +14,7 @@
 <body>
 
 <!-- HEADER -->
-<header>
+<header> <button id="theme-toggle">🌙</button>
 
 <h1>TravelGo</h1>
 
@@ -86,7 +86,7 @@
 
 <p>Відвідайте місто кохання, побачте Ейфелеву вежу та насолодіться французькою кухнею.</p>
 
-<button>Дізнатися більше</button>
+<button class="open-modal">Дізнатися більше</button>
 
 </div>
 
@@ -99,7 +99,7 @@
 
 <p>Тропічні пляжі, джунглі та неймовірні заходи сонця. Ідеальне місце для відпочинку.</p>
 
-<button>Забронювати</button>
+<button class="open-modal">Забронювати</button>
 
 </div>
 
@@ -112,7 +112,7 @@
 
 <p>Поєднання сучасних технологій та стародавньої культури Японії.</p>
 
-<button>Читати далі</button>
+<button class="open-modal"> далі</button>
 
 </div>
 
@@ -166,7 +166,7 @@
 
 <p>Email: info@travelgo.com</p>
 
-<p>Телефон: +380 00 000 000</p>
+<p>Телефон: +380 73 080 630</p>
 
 </section>
 
@@ -193,7 +193,20 @@
 
 </footer>
 
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span id="close-modal">&times;</span>
+    <h2>Деталі подорожі</h2>
+    <p>Тут буде інформація про подорож ✈️</p>
+  </div>
+</div>
+
 <script src="script.js"></script>
+
+</body>
+
+</html>
+
 
 </body>
 
