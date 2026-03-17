@@ -32,6 +32,9 @@ searchInput.addEventListener("input", function () {
 // ===== МОДАЛЬНЕ ВІКНО =====
 
 const modal = document.getElementById("modal");
+
+modal.style.display = "none";   // гарантує що модалка закрита при запуску
+
 const openButtons = document.querySelectorAll(".open-modal");
 const closeButton = document.getElementById("close-modal");
 const modalText = document.getElementById("modal-text");
