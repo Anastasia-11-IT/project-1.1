@@ -341,4 +341,28 @@ border-radius:10px;
 margin-bottom:15px;
 }
 
+#booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#booking-form input,
+#booking-form textarea {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+#booking-form button {
+  background: #0ea5e9;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#booking-form button:hover {
+  background: #0284c7;
 }
