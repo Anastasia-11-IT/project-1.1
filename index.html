@@ -88,6 +88,8 @@
 
 <button class="open-modal" data-trip="paris">Дізнатися більше</button>
 
+<button class="book-btn" data-trip="Париж">Забронювати</button>
+
 </div>
 
 <div class="card">
@@ -99,6 +101,8 @@
 <p>Тропічні пляжі, джунглі та неймовірні заходи сонця. Ідеальне місце для відпочинку.</p>
 
 <button class="open-modal" data-trip="bali">Дізнатися більше</button>
+ 
+<button class="book-btn" data-trip="Балі">Забронювати</button>
 
 </div>
 
@@ -111,6 +115,8 @@
 <p>Поєднання сучасних технологій та стародавньої культури Японії.</p>
 
 <button class="open-modal" data-trip="tokyo">Дізнатися більше</button>
+
+ <button class="book-btn" data-trip="Токіо">Забронювати</button>
 
 </div>
 
@@ -200,6 +206,33 @@
 </div>
 
 <script src="script.js"></script>
+
+ <div id="booking-modal" class="modal">
+  <div class="modal-content">
+    <span id="close-booking">&times;</span>
+    <h2>Бронювання подорожі</h2>
+
+    <form id="booking-form">
+      
+      <input type="text" id="name" placeholder="Ваше ім'я" required>
+      
+      <input type="tel" id="phone" placeholder="Телефон" required>
+      
+      <input type="email" id="email" placeholder="Email" required>
+      
+      <input type="text" id="trip" placeholder="Подорож" readonly>
+      
+      <input type="date" id="date" required>
+      
+      <input type="number" id="people" placeholder="Кількість людей" required>
+      
+      <textarea placeholder="Додаткові побажання"></textarea>
+      
+      <button type="submit">Підтвердити бронювання</button>
+
+    </form>
+  </div>
+</div>
 
 </body>
 
