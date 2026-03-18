@@ -90,10 +90,40 @@ window.addEventListener("click", function (event) {
 // Автоматичне завантаження картинок
 
 document.getElementById("paris-img").src =
-"https://source.unsplash.com/600x400/?paris,eiffel-tower";
+"https://images.unsplash.com/photo-1502602898657-3e91760cbb34";
 
 document.getElementById("bali-img").src =
-"https://source.unsplash.com/600x400/?bali,beach";
+"https://images.unsplash.com/photo-1507525428034-b723cf961d3e";
 
 document.getElementById("tokyo-img").src =
-"https://source.unsplash.com/600x400/?tokyo,city,night";
+"https://images.unsplash.com/photo-1549692520-acc6669e2f0c";
+
+// ===== БРОНЮВАННЯ =====
+
+const bookingModal = document.getElementById("booking-modal");
+const bookButtons = document.querySelectorAll(".book-btn");
+const closeBooking = document.getElementById("close-booking");
+const tripInput = document.getElementById("trip");
+
+// Відкрити форму
+bookButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        bookingModal.style.display = "flex";
+        tripInput.value = button.dataset.trip;
+    });
+});
+
+// Закрити
+closeBooking.addEventListener("click", () => {
+    bookingModal.style.display = "none";
+});
+
+// Сабміт форми
+document.getElementById("booking-form").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    alert("✅ Бронювання успішне! Ми з вами зв'яжемося.");
+
+    bookingModal.style.display = "none";
+});
+
