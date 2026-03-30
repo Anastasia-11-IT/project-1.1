@@ -21,6 +21,24 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
+    // ===== ПОШУК З ІНТЕРНЕТУ =====
+searchInput.addEventListener("change", function () {
+    const city = searchInput.value;
+
+    fetch(`https://uk.wikipedia.org/api/rest_v1/page/summary/${city}`)
+        .then(res => res.json())
+        .then(data => {
+            if (data.extract) {
+                alert("🌍 " + data.extract);
+            } else {
+                alert("Нічого не знайдено 😢");
+            }
+        })
+        .catch(() => {
+            alert("Помилка при пошуку 😢");
+        });
+});
+
 
     // ===== МОДАЛЬНЕ ВІКНО =====
     const modal = document.getElementById("modal");
@@ -92,4 +110,4 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 });
-searchInput.addEventListener("input", function () {
+
