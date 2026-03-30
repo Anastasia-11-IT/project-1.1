@@ -103,11 +103,11 @@ searchInput.addEventListener("change", function () {
         bookingModal.style.display = "none";
     });
 
-    document.getElementById("booking-form").addEventListener("submit", function(e){
-        e.preventDefault();
-        alert("✅ Бронювання успішне!");
-        bookingModal.style.display = "none";
-    });
+ //   document.getElementById("booking-form").addEventListener("submit", function(e){
+//        e.preventDefault();
+//        alert("✅ Бронювання успішне!");
+//        bookingModal.style.display = "none";
+//    });
 
-});
+//});
 
