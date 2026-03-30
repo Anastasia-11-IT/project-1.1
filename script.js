@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // ===== ПОШУК МІСТ З ІНТЕРНЕТУ =====
 
-const searchInput = document.getElementById("search");
+const searchInput = document.getElementById("search-input");
 const resultsDiv = document.getElementById("results");
 
 if (searchInput) {
