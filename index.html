@@ -1,30 +1,239 @@
 <!DOCTYPE html>
 <html lang="uk">
+
 <head>
 <meta charset="UTF-8">
-<title>TravelGo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TravelGo - Подорожуй світом</title>
+
 <link rel="stylesheet" href="styles.css">
+
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header>
-<h1>TravelGo ✈️</h1>
+
+<h1>TravelGo</h1>
 
 <nav>
 <ul>
-<li><a href="index.html">Головна</a></li>
-<li><a href="tours.html">Тури</a></li>
-<li><a href="contact.html">Контакти</a></li>
+<li><a href="#hero">Головна</a></li>
+<li><a href="#destinations">Напрямки</a></li>
+<li><a href="#travel-cards">Тури</a></li>
+<li><a href="#blog">Блог</a></li>
+<li><a href="#contact">Контакти</a></li>
 </ul>
 </nav>
+ <button id="theme-toggle">🌙</button>
 </header>
 
+
+<!-- MAIN CONTENT -->
+<main>
+
+<!-- HERO SECTION -->
 <section id="hero">
-<h2>Подорожуй світом 🌍</h2>
-<p>Знайди свою ідеальну подорож</p>
-<a href="tours.html">Дивитись тури</a>
+
+<h2>Відкрий світ разом із TravelGo</h2>
+
+<p>Знайди найкращі місця для подорожей та плануй свою наступну пригоду.</p>
+
+<a href="#travel-cards">Знайти подорож</a>
+
 </section>
 
+
+<!-- DESTINATIONS -->
+<section id="destinations">
+
+<h2>Популярні напрямки</h2>
+
+<article>
+<h3>Франція</h3>
+<p>Париж, Ейфелева вежа та романтична атмосфера.</p>
+</article>
+
+<article>
+<h3>Італія</h3>
+<p>Венеція, Рим і неймовірна італійська кухня.</p>
+</article>
+
+<article>
+<h3>Японія</h3>
+<p>Технології майбутнього та стародавні традиції.</p>
+</article>
+
+</section>
+
+
+<!-- TRAVEL CARDS -->
+<section id="travel-cards">
+
+<h2>Популярні подорожі</h2>
+
+<input type="text" id="search-input" placeholder="Пошук подорожі...">
+
+<div class="cards-container">
+
+<div class="card">
+
+<img id="paris-img" alt="Париж">
+
+<h3>Подорож до Парижа</h3>
+
+<p>Відвідайте місто кохання, побачте Ейфелеву вежу та насолодіться французькою кухнею.</p>
+
+<button class="open-modal" data-trip="paris">Дізнатися більше</button>
+
+<button class="book-btn" data-trip="Париж">Забронювати</button>
+
+</div>
+
+<div class="card">
+
+<img id="bali-img" alt="Балі">
+
+<h3>Пригода на Балі</h3>
+
+<p>Тропічні пляжі, джунглі та неймовірні заходи сонця. Ідеальне місце для відпочинку.</p>
+
+<button class="open-modal" data-trip="bali">Дізнатися більше</button>
+ 
+<button class="book-btn" data-trip="Балі">Забронювати</button>
+
+</div>
+
+<div class="card">
+
+<img id="tokyo-img" alt="Токіо">
+
+<h3>Мандрівка до Токіо</h3>
+
+<p>Поєднання сучасних технологій та стародавньої культури Японії.</p>
+
+<button class="open-modal" data-trip="tokyo">Дізнатися більше</button>
+
+ <button class="book-btn" data-trip="Токіо">Забронювати</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- BLOG -->
+<section id="blog">
+
+<h2>Поради для мандрівників</h2>
+
+<article>
+
+<h3>10 порад для бюджетної подорожі</h3>
+
+<p>Дізнайтеся, як подорожувати світом і витрачати менше грошей.</p>
+
+</article>
+
+<article>
+
+<h3>Що взяти у подорож</h3>
+
+<p>Список речей, які обов'язково потрібно взяти у будь-яку поїздку.</p>
+
+</article>
+
+</section>
+
+
+<!-- ASIDE -->
+<aside>
+
+<h3>Travel Tips</h3>
+
+<p>Підписуйтесь на наш блог, щоб отримувати нові ідеї для подорожей.</p>
+
+</aside>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer id="contact">
+
+<section>
+
+<h3>Контакти</h3>
+
+<p>Email: info@travelgo.com</p>
+
+<p>Телефон: +380 73 080 630</p>
+
+</section>
+
+
+<section>
+
+<h3>Навігація</h3>
+
+<ul>
+
+<li><a href="#hero">Головна</a></li>
+
+<li><a href="#destinations">Напрямки</a></li>
+
+<li><a href="#travel-cards">Тури</a></li>
+
+<li><a href="#blog">Блог</a></li>
+
+</ul>
+
+</section>
+
+<p>© 2026 TravelGo. Усі права захищені.</p>
+
+</footer>
+
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span id="close-modal">&times;</span>
+    <h2>Деталі подорожі</h2>
+    <p id="modal-text">Тут буде інформація про подорож ✈️</p>
+  </div>
+</div>
+
+ <div id="booking-modal" class="modal">
+  <div class="modal-content">
+    <span id="close-booking">&times;</span>
+    <h2>Бронювання подорожі</h2>
+
+    <form id="booking-form">
+      
+      <input type="text" id="name" placeholder="Ваше ім'я" required>
+      
+      <input type="tel" id="phone" placeholder="Телефон" required>
+      
+      <input type="email" id="email" placeholder="Email" required>
+      
+      <input type="text" id="trip" placeholder="Подорож" readonly>
+      
+      <input type="date" id="date" required>
+      
+      <input type="number" id="people" placeholder="Кількість людей" required>
+      
+      <textarea placeholder="Додаткові побажання"></textarea>
+      
+      <button type="submit">Підтвердити бронювання</button>
+
+    </form>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
 </body>
+
 </html>
