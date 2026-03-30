@@ -92,3 +92,4 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 });
+searchInput.addEventListener("input", function () {
