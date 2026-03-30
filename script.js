@@ -68,3 +68,43 @@ fetch(`https://uk.wikipedia.org/api/rest_v1/page/summary/${city}`)
 });
 
 }
+// ===== ПОПУЛЯРНІ ТУРИ =====
+
+const tours = [
+    {
+        city: "Париж",
+        text: "Романтична подорож у Францію 🇫🇷"
+    },
+    {
+        city: "Балі",
+        text: "Тропічний рай та океан 🌴"
+    },
+    {
+        city: "Токіо",
+        text: "Майбутнє та традиції Японії 🇯🇵"
+    },
+    {
+        city: "Нью-Йорк",
+        text: "Місто, яке ніколи не спить 🇺🇸"
+    }
+];
+
+const popularDiv = document.getElementById("popular-tours");
+
+if (popularDiv) {
+
+    tours.forEach(tour => {
+
+        const card = document.createElement("div");
+        card.className = "card";
+
+        card.innerHTML = `
+            <h3>${tour.city}</h3>
+            <p>${tour.text}</p>
+            <a href="trip.html?city=${tour.city}">Деталі</a>
+        `;
+
+        popularDiv.appendChild(card);
+    });
+
+}
