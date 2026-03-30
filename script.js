@@ -8,106 +8,63 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 
-    // ===== ПОШУК =====
-    const searchInput = document.getElementById("search-input");
-    const cards = document.querySelectorAll(".card");
+// ===== ПОШУК МІСТ З ІНТЕРНЕТУ =====
 
-    searchInput.addEventListener("input", function () {
-        const searchText = searchInput.value.toLowerCase();
+const searchInput = document.getElementById("search");
+const resultsDiv = document.getElementById("results");
 
-        cards.forEach(function (card) {
-            const cardText = card.textContent.toLowerCase();
-            card.style.display = cardText.includes(searchText) ? "block" : "none";
-        });
-    });
+if (searchInput) {
 
-    // ===== ПОШУК З ІНТЕРНЕТУ =====
-searchInput.addEventListener("change", function () {
-    const city = searchInput.value;
+searchInput.addEventListener("keypress", function(e) {
 
-    fetch(`https://uk.wikipedia.org/api/rest_v1/page/summary/${city}`)
+    if (e.key === "Enter") {
+
+        const city = searchInput.value;
+
+        fetch(`https://uk.wikipedia.org/api/rest_v1/page/summary/${city}`)
         .then(res => res.json())
         .then(data => {
-            if (data.extract) {
-                alert("🌍 " + data.extract);
-            } else {
-                alert("Нічого не знайдено 😢");
+
+            resultsDiv.innerHTML = "";
+
+            if (!data.extract) {
+                resultsDiv.innerHTML = "<p>Нічого не знайдено 😢</p>";
+                return;
             }
-        })
-        .catch(() => {
-            alert("Помилка при пошуку 😢");
+
+            const card = document.createElement("div");
+            card.className = "card";
+
+            card.innerHTML = `
+                <h3>${city}</h3>
+                <p>${data.extract.substring(0, 150)}...</p>
+                <a href="trip.html?city=${city}">Деталі</a>
+            `;
+
+            resultsDiv.appendChild(card);
         });
+
+    }
+
 });
 
-
-    // ===== МОДАЛЬНЕ ВІКНО =====
-    const modal = document.getElementById("modal");
-    const openButtons = document.querySelectorAll(".open-modal");
-    const closeButton = document.getElementById("close-modal");
-    const modalText = document.getElementById("modal-text");
-
-    openButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            const trip = button.dataset.trip;
-
-            if(trip === "paris"){
-                modalText.textContent = "Париж — місто романтики...";
-            }
-
-            if(trip === "bali"){
-                modalText.textContent = "Балі — тропічний рай...";
-            }
-
-            if(trip === "tokyo"){
-                modalText.textContent = "Токіо — місто майбутнього...";
-            }
-
-            modal.style.display = "flex";
-        });
-    });
-
-    closeButton.addEventListener("click", () => modal.style.display = "none");
-
-    window.addEventListener("click", (e) => {
-        if(e.target === modal){
-            modal.style.display = "none";
-        }
-    });
+}
 
 
-    // ===== КАРТИНКИ =====
-    document.getElementById("paris-img").src =
-    "https://images.unsplash.com/photo-1502602898657-3e91760cbb34";
+// ===== СТОРІНКА ТУРУ =====
 
-    document.getElementById("bali-img").src =
-    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e";
+const params = new URLSearchParams(window.location.search);
+const city = params.get("city");
 
-    document.getElementById("tokyo-img").src =
-    "https://images.unsplash.com/photo-1549692520-acc6669e2f0c";
+if (city && document.getElementById("title")) {
 
+fetch(`https://uk.wikipedia.org/api/rest_v1/page/summary/${city}`)
+.then(res => res.json())
+.then(data => {
 
-    // ===== БРОНЮВАННЯ =====
-    const bookingModal = document.getElementById("booking-modal");
-    const bookButtons = document.querySelectorAll(".book-btn");
-    const closeBooking = document.getElementById("close-booking");
-    const tripInput = document.getElementById("trip");
+    document.getElementById("title").textContent = city;
+    document.getElementById("description").textContent = data.extract;
 
-    bookButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            bookingModal.style.display = "flex";
-            tripInput.value = button.dataset.trip;
-        });
-    });
+});
 
-    closeBooking.addEventListener("click", () => {
-        bookingModal.style.display = "none";
-    });
-
- //   document.getElementById("booking-form").addEventListener("submit", function(e){
-//        e.preventDefault();
-//        alert("✅ Бронювання успішне!");
-//        bookingModal.style.display = "none";
-//    });
-
-//});
-
+}
